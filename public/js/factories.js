@@ -6,6 +6,5 @@ angular.module('myApp')
   ]);
 
 function characterVersionFactory (mainCharacter, APP_VERSION) {
-  console.log(mainCharacter, APP_VERSION);
   return `${mainCharacter} ${APP_VERSION}`;
 }
