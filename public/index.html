@@ -60,7 +60,7 @@
 
   <h3>Movies:</h3>
   <ul class="value_of_movies">
-    <li ng-repeat="movie in movies">
+    <li ng-repeat="movie in movies | filter: { year: 1983}">
       <h3>{{movie.title}}</h3>
       <p>{{'year: ' + movie.year}}</p>
     </li>
