@@ -63,7 +63,7 @@
       </button>
     </div>
     <ul>
-      <li ng-repeat="book in BookService.books | filter: { title: bookTitleFilterValue}">
+      <li ng-repeat="book in BookService.books | filter: { title: bookTitleFilterValue} | orderBy: 'title'">
         <h3>{{book.title}}</h3>
         <p>{{'by ' + book.author}}</p>
       </li>
@@ -72,7 +72,7 @@
 
   <h3>Movies:</h3>
   <ul class="value_of_movies">
-    <li ng-repeat="movie in movies | beforeYearFilter: 1983">
+    <li ng-repeat="movie in movies | beforeYearFilter: 1983 | orderBy: '-year'">
       <h3>{{movie.title}}</h3>
       <p>{{'year: ' + movie.year}}</p>
     </li>
