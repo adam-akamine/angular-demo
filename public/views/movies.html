@@ -1,0 +1,7 @@
+<h3>Movies:</h3>
+  <ul class="value_of_movies">
+    <li ng-repeat="movie in movies | beforeYearFilter: 1983 | orderBy: '-year'">
+      <h3>{{movie.title}}</h3>
+      <p>{{'year: ' + movie.year}}</p>
+    </li>
+  </ul>

@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Angular demo</title>
   <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js'></script>
+  <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.min.js'></script>
   <script type="text/javascript" src="js/myApp.js"></script>
   <script type="text/javascript" src="js/controllers.js"></script>
   <script type="text/javascript" src="js/values.js"></script>
@@ -13,71 +14,27 @@
   <script type="text/javascript" src="js/providers.js"></script>
   <script type="text/javascript" src="js/filters.js"></script>
 </head>
-<body ng-app="myApp" ng-controller="myController">
+<body ng-app="myApp" >
   <h1>{{'Hello ' + 'Angular!'}}</h1>
-  <div>{{2 + 3}}</div>
-  <div>
-    <h3>{{myFirstName}}</h3>
-    <input type="text" ng-model="myModel">
-    <div>{{'My model: ' + myModel}}</div>
-    <div>{{'Main character: ' + mainCharacter}}</div>
-    <div>{{'App version: ' + APP_VERSION}}</div>
-    <div>{{'Character, Version: ' + characterVersion}}</div>
-    <br>
-    <b>Books:</b>
-    <div>
-      <label>
-        Find Book
-        <input
-          type="search"
-          name="bookTitle"
-          ng-model="bookTitleFilterValue"
-          placeholder="Sherlock Holmes"
-        >
-      </label>
-    <div class="addBook">
-      <label>
-        Author
-        <input
-          type="text"
-          name="author"
-          placeholder="R.L. Stein"
-          ng-model="author"
-        >
-      </label>
-      <label>
-        Title
-        <input
-        type="text"
-        name="author"
-        placeholder="Goosebumps"
-        ng-model="title"
-      >
-      </label>
 
-      <button ng-click="BookService.addBook({
-        title: title,
-        author: author
-        }); title=''; author='';">
-        Add book
-      </button>
-    </div>
+  <nav>
     <ul>
-      <li ng-repeat="book in BookService.books | filter: { title: bookTitleFilterValue} | orderBy: 'title'">
-        <h3>{{book.title}}</h3>
-        <p>{{'by ' + book.author}}</p>
+      <li>
+        <a href="/#/">Home</a>
+      </li>
+      <li>
+        <a href="/#/books">Books</a>
+      </li>
+      <li>
+        <a href="/#/movies">Movies</a>
+      </li>
+      <li>
+        <a href="/#/other">Other</a>
       </li>
     </ul>
-  </div>
+  </nav>
 
-  <h3>Movies:</h3>
-  <ul class="value_of_movies">
-    <li ng-repeat="movie in movies | beforeYearFilter: 1983 | orderBy: '-year'">
-      <h3>{{movie.title}}</h3>
-      <p>{{'year: ' + movie.year}}</p>
-    </li>
-  </ul>
-
+  <div ng-view></div>
 
 </body>
 </html>
