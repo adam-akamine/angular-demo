@@ -11,6 +11,7 @@
   <script type="text/javascript" src="js/factories.js"></script>
   <script type="text/javascript" src="js/services.js"></script>
   <script type="text/javascript" src="js/providers.js"></script>
+  <script type="text/javascript" src="js/filters.js"></script>
 </head>
 <body ng-app="myApp" ng-controller="myController">
   <h1>{{'Hello ' + 'Angular!'}}</h1>
@@ -22,7 +23,18 @@
     <div>{{'Main character: ' + mainCharacter}}</div>
     <div>{{'App version: ' + APP_VERSION}}</div>
     <div>{{'Character, Version: ' + characterVersion}}</div>
-    Books:
+    <br>
+    <b>Books:</b>
+    <div>
+      <label>
+        Find Book
+        <input
+          type="search"
+          name="bookTitle"
+          ng-model="bookTitleFilterValue"
+          placeholder="Sherlock Holmes"
+        >
+      </label>
     <div class="addBook">
       <label>
         Author
@@ -51,7 +63,7 @@
       </button>
     </div>
     <ul>
-      <li ng-repeat="book in BookService.books">
+      <li ng-repeat="book in BookService.books | filter: { title: bookTitleFilterValue}">
         <h3>{{book.title}}</h3>
         <p>{{'by ' + book.author}}</p>
       </li>
@@ -60,7 +72,7 @@
 
   <h3>Movies:</h3>
   <ul class="value_of_movies">
-    <li ng-repeat="movie in movies | filter: { year: 1983}">
+    <li ng-repeat="movie in movies | beforeYearFilter: 1983">
       <h3>{{movie.title}}</h3>
       <p>{{'year: ' + movie.year}}</p>
     </li>
