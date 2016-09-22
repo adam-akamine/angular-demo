@@ -21,6 +21,9 @@ var myApp = angular.module('myApp', ['ngRoute'])
         .when('/other', {
           templateUrl: '/views/other.html',
           controller: 'myController'
+        })
+        .otherwise({
+          templateUrl: '/views/404.html'
         });
     }])
   .run(['$rootScope', 'APP_VERSION', function ($rootScope, APP_VERSION) {
