@@ -1,5 +1,5 @@
 // second argument to import dependencies
-var myApp = angular.module('myApp', ['ngRoute'])
+var myApp = angular.module('myApp', ['ngRoute', "ngAnimate"])
   .config([
     'MoviesProvider',
     '$routeProvider',
