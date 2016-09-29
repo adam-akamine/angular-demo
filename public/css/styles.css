@@ -1,0 +1,7 @@
+.menuList {
+  padding-left: 0;
+}
+
+.menuList li {
+  display: inline-block;
+}
